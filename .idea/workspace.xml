@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a825b39-cc12-4949-b9b8-e2da999a346b" name="Default" comment="" />
+    <list default="true" id="3a825b39-cc12-4949-b9b8-e2da999a346b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    </list>
     <ignored path="shortcuts.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="3a825b39-cc12-4949-b9b8-e2da999a346b" time="1359902027417" ignored="false" />
     <file path="/Gemfile" changelist="3a825b39-cc12-4949-b9b8-e2da999a346b" time="1359902051712" ignored="false" />
+    <file path="/.gitignore" changelist="3a825b39-cc12-4949-b9b8-e2da999a346b" time="1359902517316" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,10 +25,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="318" selection-end="318" vertical-scroll-proportion="0.29069766">
+            <state line="15" column="5" selection-start="435" selection-end="435" vertical-scroll-proportion="0.21802326">
               <folding />
             </state>
           </provider>
@@ -50,6 +53,7 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -116,6 +120,17 @@
     <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="PublishConfig">
+    <servers>
+      <server id="0499be91-dca4-4b55-8257-45b9e6948d70">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
   </component>
   <component name="RunManager" selected="Rails.Development: shortcuts">
     <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
@@ -369,6 +384,13 @@
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="318" selection-end="318" vertical-scroll-proportion="0.29069766">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="5" selection-start="435" selection-end="435" vertical-scroll-proportion="0.21802326">
           <folding />
         </state>
       </provider>
