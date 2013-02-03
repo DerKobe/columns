@@ -1,0 +1,44 @@
+@import "twitter/bootstrap/variables.less";
+@import "twitter/bootstrap/mixins.less";
+
+.column {
+  width: 250px;
+  float: left;
+}
+
+.column {
+  margin-left: 10px;
+}
+
+.category-header {
+  text-align: center;
+  color: #364d77;
+  text-shadow: 1px 1px 1px rgb(255,255,255);
+}
+
+.shortcut {
+  width: auto;
+  background: white;
+  padding: 10px;
+  margin: 0 0 5px 0;
+  .border-radius(10px);
+  .box-shadow(~"2px 3px 4px rgba(0, 0, 0, 0.2), -2px 3px 4px rgba(0, 0, 0, 0.2), 2px -1px 4px rgba(0, 0, 0, 0.2), -2px -1px 4px rgba(0, 0, 0, 0.2)");
+
+  .headline {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  &.blue { border: 1px solid blue; }
+  &.red { border: 1px solid red; }
+  &.green { border: 1px solid green; }
+  &.yellow { border: 1px solid yellow; }
+
+  .separator {
+    width:  100%;
+    margin: 2px 0;
+    border-top: 1px dashed grey;
+  }
+}

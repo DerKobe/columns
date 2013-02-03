@@ -1,0 +1,28 @@
+.navbar.navbar-fixed-bottom
+  .navbar-inner
+    %a.brand{ href: root_path }
+      Shortcuts
+    %ul.nav
+
+      %li.divider-vertical{ class: separator_needed?(['Dashboard']) }
+
+      %li{ class: is_nav_item_active?('Dashboard') }
+        %a{ href: root_path }
+          %i.icon-th
+          Dashboard
+
+      %li.divider-vertical{ class: separator_needed?(['Dashboard','Link']) }
+
+      %li{ class: is_nav_item_active?('Link') }
+        %a{ href: "#" }
+          %i.icon-plus
+          Link
+
+      %li.divider-vertical{ class: separator_needed?(['Link','Category']) }
+
+      %li{ class: is_nav_item_active?('Category') }
+        %a{ href: "#" }
+          %i.icon-plus
+          Category
+
+      %li.divider-vertical{ class: separator_needed?(['Category']) }
