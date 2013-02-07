@@ -1,0 +1,12 @@
+= simple_form_for(@shortcut, :html => {:class => 'form-horizontal' }) do |f|
+  .navbar.navbar-inverse.navbar-fixed-top
+    .navbar-inner
+      %input{ type: 'reset', class: 'btn btn-danger', value: 'Cancel' }
+      .title Add Column
+      %input{ type: 'submit', class: 'btn btn-primary', value: 'Save' }
+
+  .container.first
+    .span12
+      = f.input :url, input_html: { class: "span8" }, placeholder: 'http://columns.com', label: 'URL'
+      = f.input :headline, input_html: { class: "span8" }, placeholder: 'Columns', label: 'Headline'
+      = f.input :color, :collection => colors, :as => :radio_buttons, :item_wrapper_class => 'inline'

@@ -4,8 +4,29 @@ body { background-image: url(background_4.jpg); }
   display: none;
 }
 
+.container.first {
+  margin-top: 70px;
+}
+
 .navbar .divider-vertical {
   margin:  0;
+}
+
+.navbar-fixed-top {
+  text-align: center;
+
+  .title {
+    color:  #F0F0F0;
+    font-size: 22px;
+    position: relative;
+    top: 7px;
+    margin: 0 50px;
+  }
+
+  .title, ul {
+    display: inline-block;
+    float: none;
+  }
 }
 
 .navbar-fixed-bottom .navbar-inner {
@@ -22,5 +43,12 @@ body { background-image: url(background_4.jpg); }
   left: 50%;
   margin-left: -340px;
   margin-top: -100px;
-  z-index: -1000;
+  z-index: -1;
+}
+
+.form-horizontal .control-group {
+  padding: 10px;
+  background: rgba(245, 245, 245, 0.75);
+  margin-bottom: 1px;
+  border: 1px solid rgb(245, 245, 245);
 }

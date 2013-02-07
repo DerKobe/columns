@@ -1,6 +1,5 @@
 class DashboardController < ApplicationController
-
-  before_filter :authenticate_user!
+  before_filter :must_haz_user
 
   def index
   end

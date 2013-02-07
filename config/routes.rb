@@ -1,7 +1,7 @@
-Shortcuts::Application.routes.draw do
-
+Columns::Application.routes.draw do
   devise_for :users
 
-  root to: 'dashboard#index'
+  resources :shortcuts
 
+  root to: 'dashboard#index'
 end
