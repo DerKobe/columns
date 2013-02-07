@@ -1,7 +1,7 @@
 = simple_form_for(@shortcut, :html => {:class => 'form-horizontal' }) do |f|
   .navbar.navbar-inverse.navbar-fixed-top
     .navbar-inner
-      %input{ type: 'reset', class: 'btn btn-danger', value: 'Cancel' }
+      %a{ href: '/', class: 'btn btn-danger'} Cancel
       .title New Shortcut
       %input{ type: 'submit', class: 'btn btn-primary', value: 'Save' }
 

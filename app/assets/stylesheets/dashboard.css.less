@@ -1,9 +1,11 @@
-@import "twitter/bootstrap/variables.less";
-@import "twitter/bootstrap/mixins.less";
+@import "twitter/bootstrap/variables";
+@import "twitter/bootstrap/mixins";
+@import 'variables';
 
 .column {
   width: 250px;
   float: left;
+  margin-bottom: 100px;
 }
 
 .column {
@@ -12,43 +14,64 @@
 
 .category-header {
   text-align: center;
-  color: #364d77;
+  color: rgb(80,80,80);
   text-shadow: 1px 1px 1px rgb(255,255,255);
 }
 
 .shortcut {
   width: auto;
-  background: white;
   padding: 10px;
   margin: 0 0 5px 0;
   .border-radius(10px);
   .box-shadow(~"2px 3px 4px rgba(0, 0, 0, 0.2), -2px 3px 4px rgba(0, 0, 0, 0.2), 2px -1px 4px rgba(0, 0, 0, 0.2), -2px -1px 4px rgba(0, 0, 0, 0.2)");
 
   .headline {
-    text-align: center;
+    /*text-align: center;*/
     font-size: 18px;
     font-weight: bold;
     color: #333;
     &:hover { cursor: pointer; }
+    img {
+      position: relative;
+      top: -1px;
+    }
   }
 
-  &:hover { background: #f6f6f6; }
-  &.blue { border: 1px solid blue; }
-  &.blue:hover { background: #dbdbff; }
-  &.red { border: 1px solid red; }
-  &.red:hover { background: #ffdbdb; }
-  &.green { border: 1px solid green; }
-  &.green:hover { background: #dbffdb; }
-  &.yellow { border: 1px solid yellow; }
-  &.yellow:hover { background: #ffffdb; }
-  &.orange { border: 1px solid orange; }
-  &.orange:hover { background: #ffe6c6; }
-  &.black { border: 1px solid black; }
+  border: 4px solid @white;
+  background: @white;
+  &:hover { border-color: darken(@white, 20%); }
+
+  &.blue { border-color: @blue; }
+  &.blue .headline, &.blue a { color: darken(@blue, 50%); }
+  &.blue:hover { background: lighten(@blue, 13%); }
+
+  &.red { border-color: @red; }
+  &.red .headline, &.red a { color: darken(@red, 15%); }
+  &.red:hover { background: lighten(@red, 45%); }
+
+  &.green { border-color: @green; }
+  &.green .headline, &.green a { color: darken(@green, 7%); }
+  &.green:hover { background: lighten(@green, 70%); }
+
+  &.yellow { border-color: @yellow; }
+  &.yellow .headline, &.yellow a { color: darken(@yellow, 30%); }
+  &.yellow:hover { background: lighten(@yellow, 40%); }
+
+  &.orange { border-color: @orange; }
+  &.orange .headline, &.orange a { color: darken(@orange, 30%); }
+  &.orange:hover { background: lighten(@orange, 40%); }
+
+  &.black { border-color: @black; }
+  &.black .headline, &.black a { color: darken(@black, 30%); }
+  &.black:hover { background: lighten(@black, 80%); }
+
   .separator {
     width:  100%;
     margin: 2px 0;
     border-top: 1px dashed grey;
   }
 
-
+  &.auto-open .sublinks {
+    display: none;
+  }
 }

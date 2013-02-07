@@ -13,13 +13,13 @@ module ApplicationHelper
 
   def colors
     {
-        '<div class="color none"></div>'.html_safe   => 'none',
-        '<div class="color blue"></div>'.html_safe   => 'blue',
-        '<div class="color red"></div>'.html_safe    => 'red',
-        '<div class="color green"></div>'.html_safe  => 'green',
-        '<div class="color yellow"></div>'.html_safe => 'yellow',
-        '<div class="color orange"></div>'.html_safe => 'orange',
-        '<div class="color black"></div>'.html_safe  => 'black'
+        '<div class="color none">A</div>'.html_safe   => 'none',
+        '<div class="color blue">A</div>'.html_safe   => 'blue',
+        '<div class="color red">A</div>'.html_safe    => 'red',
+        '<div class="color green">A</div>'.html_safe  => 'green',
+        '<div class="color yellow">A</div>'.html_safe => 'yellow',
+        '<div class="color orange">A</div>'.html_safe => 'orange',
+        '<div class="color black">A</div>'.html_safe  => 'black'
     }
   end
 end

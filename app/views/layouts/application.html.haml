@@ -7,8 +7,9 @@
     = csrf_meta_tags
 
   %body
-    .big-brand-name
-      Columns
+    - if user_signed_in?
+      .big-brand-name
+        Columns
 
     = yield
 
