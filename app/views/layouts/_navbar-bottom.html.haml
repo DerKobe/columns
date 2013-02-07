@@ -14,7 +14,7 @@
       %li.divider-vertical{ class: separator_needed?(['Dashboard','Shortcut']) }
 
       %li{ class: is_nav_item_active?('Shortcut') }
-        %a{ href: "#" }
+        = link_to new_shortcut_path do
           %i.icon-plus
           Shortcut
 
