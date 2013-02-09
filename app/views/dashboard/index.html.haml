@@ -9,7 +9,7 @@
       - column.shortcuts.each do |shortcut|
         %li.shortcut{ class: "#{shortcut.color} #{@arrange_mode ? '' : shortcut.sublinks_panel}" }
           .headline
-            %a{ href: shortcut.url }
+            %a{ href: @arrange_mode ? '#' : shortcut.url }
               - if shortcut.favicon
                 %img{ src: shortcut.favicon, height: 16, width: 16 }
               = shortcut.headline
@@ -23,8 +23,6 @@
             - if @arrange_mode
               .pull-right
                 .arrange-buttons
-                  %a.move{ href: '#' }
-                    %i.icon-move
                   = link_to edit_shortcut_path(shortcut), class: :edit  do
                     %i.icon-pencil
                   = link_to shortcut_path(shortcut), method: :delete, class: :remove  do
