@@ -10,3 +10,4 @@
       = f.input :url, input_html: { class: "span8" }, placeholder: 'http://columns.com', label: 'URL'
       = f.input :headline, input_html: { class: "span8" }, placeholder: 'Columns', label: 'Headline'
       = f.input :color, :collection => colors, :as => :radio_buttons, :item_wrapper_class => 'inline'
+      = f.input :column, :collection => current_user.columns

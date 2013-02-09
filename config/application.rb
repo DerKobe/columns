@@ -64,5 +64,11 @@ module Columns
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Custom Phoenix logger
+    initializer 'columns.declare_custom_logger', :after => :initialize_logger do |app|
+      require 'columns_formatter'
+      Rails.logger.formatter = ActiveSupport::ColumnsFormatter.new
+    end
   end
 end
