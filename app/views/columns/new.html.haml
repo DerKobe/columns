@@ -1,10 +1,13 @@
 = simple_form_for(@column, :html => {:class => 'form-horizontal' }) do |f|
   .navbar.navbar-inverse.navbar-fixed-top
     .navbar-inner
-      %a{ href: '/', class: 'btn btn-danger'} Cancel
       .title New Column
-      %input{ type: 'submit', class: 'btn btn-primary', value: 'Save' }
 
   .container.first
     .span12
       = f.input :title, input_html: { class: "span8" }, placeholder: 'MyColumn', label: 'Title'
+
+  .navbar.navbar-fixed-bottom.second
+    .navbar-inner
+      %a{ href: '/', class: 'btn btn-danger'} Cancel
+      %input{ type: 'submit', class: 'btn btn-primary', value: 'Save' }

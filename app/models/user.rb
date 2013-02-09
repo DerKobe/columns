@@ -37,4 +37,5 @@ class User
   # field :authentication_token, :type => String
 
   has_many :columns
+  has_many :shortcuts
 end

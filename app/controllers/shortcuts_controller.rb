@@ -1,16 +1,13 @@
 class ShortcutsController < ApplicationController
   before_filter :must_haz_user
 
-  def index
-  end
-
   def new
     @shortcut = Shortcut.new color: 'none'
   end
 
   def create
-    Rails.logger.log params.inspect
     @shortcut = Shortcut.new params[:shortcut]
+    @shortcut.user = current_user
 
     begin
       @shortcut.save!
@@ -18,6 +15,28 @@ class ShortcutsController < ApplicationController
     rescue Mongoid::Errors::Validations
       render :new
     end
+  end
+
+  def edit
+    @shortcut = current_user.shortcuts.find params[:id]
+    render :new
+  end
+
+  def update
+    begin
+      @shortcut = current_user.shortcuts.find params[:id]
+      @shortcut.write_attributes params[:shortcut]
+      @shortcut.save!
+      redirect_to arrange_url
+    rescue Mongoid::Errors::Validations
+      render :new
+    end
+  end
+
+  def destroy
+    @shortcut = current_user.shortcuts.find params[:id]
+    @shortcut.destroy
+    redirect_to arrange_url
   end
 
 end

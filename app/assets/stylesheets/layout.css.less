@@ -8,29 +8,31 @@ body { background-image: url(background_4.jpg); }
   margin-top: 70px;
 }
 
-.navbar .divider-vertical {
-  margin:  0;
-}
-
 .navbar-fixed-top {
   text-align: center;
-
   .title {
     color:  #F0F0F0;
     font-size: 22px;
     position: relative;
-    top: 7px;
+    top: 10px;
     margin: 0 50px;
-  }
-
-  .title, ul {
-    display: inline-block;
-    float: none;
   }
 }
 
-.navbar-fixed-bottom .navbar-inner {
-  padding-left: 20px;
+.navbar-fixed-bottom {
+  &.second {
+    bottom: 42px;
+    text-align: center;
+
+    .title, ul {
+      display: inline-block;
+      float: none;
+    }
+  }
+
+  .navbar-inner {
+    padding-left: 20px;
+  }
 }
 
 .big-brand-name {
@@ -54,5 +56,6 @@ body { background-image: url(background_4.jpg); }
 
   .radio.inline {
     margin-right: 20px;
+    &.fixed-width { width: 120px; }
   }
 }

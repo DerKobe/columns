@@ -1,13 +1,14 @@
 class Dashboard
 
   constructor: ->
-    $('.shortcut.auto-open').on 'mouseenter mouseleave', @toggle_shortcut
+    $('.shortcut.auto-open').on 'mouseenter mouseleave', @toggle_sublinks
+    $('.shortcut .toggle-buttons a').on 'click', @toggle_sublinks
 
-  toggle_shortcut: (event)->
-    $sublinks = $(event.target).closest('.shortcut').find('.sublinks')
-    if $sublinks.data 'open' == (event.type == 'mouseleave')
-      $sublinks.data 'open', (event.type == 'mouseleave')
-      $sublinks.slideToggle(150)
+  toggle_sublinks: (event)->
+    $shortcut = $(event.target).closest('.shortcut')
+    $shortcut.find('.sublinks').slideToggle(150)
+    if event.type == 'click'
+      $shortcut.find('.toggle-buttons a').toggle()
 
 $ ->
   new Dashboard()

@@ -4,13 +4,6 @@ module ApplicationHelper
     controller.class.name == "#{item}Controller" ? 'active' : ''
   end
 
-  def separator_needed?(neighbours)
-    neighbours.reduce('') do |s,n|
-      s = 'hide' if controller.class.name == "#{n}Controller"
-      s
-    end
-  end
-
   def colors
     {
         '<div class="color none">A</div>'.html_safe   => 'none',
@@ -22,4 +15,13 @@ module ApplicationHelper
         '<div class="color black">A</div>'.html_safe  => 'black'
     }
   end
+
+  def sublinks_panel
+    {
+      'Always open' => :always_open,
+      'Auto open/close' => :auto,
+      'Manual toggle' => :toggle
+    }
+  end
+
 end

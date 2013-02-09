@@ -1,9 +1,6 @@
 class ColumnsController < ApplicationController
   before_filter :must_haz_user
 
-  def index
-  end
-
   def new
     @column = Column.new
   end
@@ -18,6 +15,10 @@ class ColumnsController < ApplicationController
     rescue Mongoid::Errors::Validations
       render :new
     end
+  end
+
+  def edit
+    @column = current_user.columns.find(params[:id])
   end
 
 end

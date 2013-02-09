@@ -1,14 +1,18 @@
 = simple_form_for(@shortcut, :html => {:class => 'form-horizontal' }) do |f|
   .navbar.navbar-inverse.navbar-fixed-top
     .navbar-inner
-      %a{ href: '/', class: 'btn btn-danger'} Cancel
-      .title New Shortcut
-      %input{ type: 'submit', class: 'btn btn-primary', value: 'Save' }
+      .title #{params[:action].capitalize} Shortcut
 
   .container.first
     .span12
       = f.input :url, input_html: { class: "span8" }, placeholder: 'http://columns.com', label: 'URL'
       = f.input :headline, input_html: { class: "span8" }, placeholder: 'Columns', label: 'Headline'
-      = f.input :color, :collection => colors, :as => :radio_buttons, :item_wrapper_class => 'inline'
-      = f.input :column, :collection => current_user.columns
-      = f.input :auto_open, :as => :radio_buttons, :item_wrapper_class => 'inline'
+      = f.input :color, collection: colors, as: :radio_buttons, item_wrapper_class: 'inline'
+      = f.input :column_id, collection: current_user.columns
+      = f.input :sublinks_panel, collection: sublinks_panel, as: :radio_buttons, item_wrapper_class: 'inline fixed-width'
+
+
+  .navbar.navbar-fixed-bottom.second
+    .navbar-inner
+      %a{ href: '/', class: 'btn btn-danger'} Cancel
+      %input{ type: 'submit', class: 'btn btn-primary', value: 'Save' }

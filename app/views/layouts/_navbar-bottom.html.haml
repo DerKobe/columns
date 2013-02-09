@@ -4,28 +4,25 @@
       Columns
     %ul.nav
 
-      %li.divider-vertical{ class: separator_needed?(['Dashboard']) }
-
       %li{ class: is_nav_item_active?('Dashboard') }
         %a{ href: root_path }
           %i.icon-th
           Dashboard
 
-      %li.divider-vertical{ class: separator_needed?(['Dashboard','Shortcut']) }
-
-      %li{ class: is_nav_item_active?('Shortcut') }
+      %li{ class: is_nav_item_active?('Shortcuts') }
         = link_to new_shortcut_path do
           %i.icon-plus
           Shortcut
 
-      %li.divider-vertical{ class: separator_needed?(['Shortcut','Column']) }
-
-      %li{ class: is_nav_item_active?('Column') }
+      %li{ class: is_nav_item_active?('Columns') }
         = link_to new_column_path do
           %i.icon-plus
           Column
 
-      %li.divider-vertical{ class: separator_needed?(['Column']) }
+      %li{ class: is_nav_item_active?('Arrange') }
+        = link_to arrange_path do
+          %i.icon-pencil
+          Arrange
 
     %ul.nav.pull-right
       %li

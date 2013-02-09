@@ -26,15 +26,14 @@
   .box-shadow(~"2px 3px 4px rgba(0, 0, 0, 0.2), -2px 3px 4px rgba(0, 0, 0, 0.2), 2px -1px 4px rgba(0, 0, 0, 0.2), -2px -1px 4px rgba(0, 0, 0, 0.2)");
 
   .headline {
-    /*text-align: center;*/
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    &:hover { cursor: pointer; }
     img {
       position: relative;
       top: -1px;
     }
+    a { text-decoration: none; }
   }
 
   border: 4px solid @white;
@@ -44,35 +43,57 @@
 
   &.blue { border-color: @blue_light; }
   &.blue .headline, &.blue a { color: @blue_dark; }
+  &.blue a:hover { color: @blue_darker; }
   &.blue:hover { border-color: @blue; }
 
   &.red { border-color: @red_light; }
   &.red .headline, &.red a { color: @red_dark; }
+  &.red a:hover { color: @red_darker; }
   &.red:hover { border-color: @red; }
 
   &.green { border-color: @green_light; }
   &.green .headline, &.green a { color: @green_dark; }
+  &.green a:hover { color: @green_darker; }
   &.green:hover { border-color: @green; }
 
   &.yellow { border-color: @yellow_light; }
   &.yellow .headline, &.yellow a { color: @yellow_dark; }
+  &.yellow a:hover { color: @yellow_darker; }
   &.yellow:hover { border-color: @yellow; }
 
   &.orange { border-color: @orange_light; }
   &.orange .headline, &.orange a { color: @orange_dark; }
+  &.orange a:hover { color: @orange_darker; }
   &.orange:hover { border-color: @orange; }
 
   &.black { border-color: @black_light; }
   &.black .headline, &.black a { color: @black_dark; }
+  &.black a:hover { color: @black_darker; }
   &.black:hover { border-color: @black; }
 
   .separator {
     width:  100%;
     margin: 2px 0;
-    border-top: 1px dashed grey;
+    border-top: 1px dotted grey;
   }
 
   &.auto-open .sublinks {
     display: none;
+  }
+
+  .toggle-buttons a { text-decoration: none; }
+
+  .arrange-buttons a {
+    i { width: 0.8em; }
+
+    &.edit, &.move {
+      color: lighten(black, 30%);
+      &:hover { color: black; }
+    }
+
+    &.remove {
+      color: lighten(red, 30%);
+      &:hover { color: red; }
+    }
   }
 }

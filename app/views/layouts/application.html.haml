@@ -6,7 +6,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
 
-  %body
+  %body{ class: controller.class.name.sub('Controller','').downcase }
     - if user_signed_in?
       .big-brand-name
         Columns
