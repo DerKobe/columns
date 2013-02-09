@@ -1,11 +1,12 @@
 class Shortcut
   include Mongoid::Document
 
-  field :headline, type: String
-  field :url,      type: String
-  field :color,    type: String, default: 'none'
+  field :headline,  type: String
+  field :url,       type: String
+  field :color,     type: String, default: 'none'
+  field :auto_open, type: Boolean, default: false
 
-  attr_accessible :headline, :url, :color, :column
+  attr_accessible :headline, :url, :color, :column, :auto_open
 
   belongs_to :column
 

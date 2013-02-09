@@ -11,3 +11,4 @@
       = f.input :headline, input_html: { class: "span8" }, placeholder: 'Columns', label: 'Headline'
       = f.input :color, :collection => colors, :as => :radio_buttons, :item_wrapper_class => 'inline'
       = f.input :column, :collection => current_user.columns
+      = f.input :auto_open, :as => :radio_buttons, :item_wrapper_class => 'inline'
