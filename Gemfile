@@ -14,6 +14,7 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'simple_form'
+gem 'pismo'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

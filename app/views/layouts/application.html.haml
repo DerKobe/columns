@@ -8,8 +8,8 @@
 
   %body{ class: controller.class.name.sub('Controller','').downcase }
     - if user_signed_in?
-      .big-brand-name
-        Columns
+      .big-brand-name{ class: controller.class.name.sub('Controller','').downcase }
+        = controller.class.name.sub('Controller','')
 
     = yield
 

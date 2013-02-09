@@ -5,6 +5,7 @@ class Shortcut
   field :url,            type: String
   field :color,          type: Symbol, default: :none
   field :sublinks_panel, type: Symbol, default: :always_open
+  field :favicon,        type: String
 
   attr_accessible :headline, :url, :color, :column_id, :sublinks_panel
 

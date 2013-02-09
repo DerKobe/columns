@@ -9,7 +9,10 @@
       - column.shortcuts.each do |shortcut|
         %li.shortcut{ class: "#{shortcut.color} #{@arrange_mode ? '' : shortcut.sublinks_panel}" }
           .headline
-            %a{ href: shortcut.url }= shortcut.headline
+            %a{ href: shortcut.url }
+              - if shortcut.favicon
+                %img{ src: shortcut.favicon, height: 16, width: 16 }
+              = shortcut.headline
             - if !@arrange_mode && shortcut.sublinks_panel == :toggle
               .pull-right
                 .toggle-buttons
