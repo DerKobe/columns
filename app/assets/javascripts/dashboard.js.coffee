@@ -5,7 +5,7 @@ class Dashboard
     $('body.dashboard .shortcut .toggle-buttons a').on 'click', @toggle_sublinks
     $('body.dashboard .shortcut .headline').on 'click', @follow_headline_link
 
-    $('body.arrange ul').sortable({items: 'li.shortcut'}).disableSelection();
+    $('body.arrange ul').sortable({items: 'li.shortcut', connectWith: "body.arrange ul"}).disableSelection();
 
   toggle_sublinks: (event)->
     $shortcut = $(event.target).closest('.shortcut')
