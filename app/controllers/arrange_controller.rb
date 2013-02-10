@@ -8,7 +8,7 @@ class ArrangeController < ApplicationController
     render 'dashboard/index'
   end
 
-  def update
+  def update_shortcut
     begin
       shortcut = current_user.shortcuts.find params[:shortcut_id]
       column = current_user.columns.find params[:column_id]
@@ -16,13 +16,17 @@ class ArrangeController < ApplicationController
       if params[:column_id] == shortcut.column_id.to_s
         new = params[:position].to_i
         old = shortcut.position
-        Shortcut.where(
-            column_id: shortcut.column_id,
-            position: {
-              '$gte' => [old,new].min,
-              '$lte' => [old,new].max
-            }
-        ).inc(:position, old > new ? 1 : -1)
+        if old != new
+          Shortcut.where(
+              column_id: shortcut.column_id,
+              position: {
+                '$gte' => [old,new].min,
+                '$lte' => [old,new].max
+              }
+          ).inc(:position, old > new ? 1 : -1)
+          shortcut.position = params[:position]
+          shortcut.save!
+        end
       else
         Shortcut.where(
             column_id: shortcut.column_id,
@@ -34,15 +38,43 @@ class ArrangeController < ApplicationController
         ).inc(:position, 1)
 
         shortcut.column = column
+        shortcut.position = params[:position]
+        shortcut.save!
       end
-
-      shortcut.position = params[:position]
-      shortcut.save!
 
       render json: { status: :ok }
     rescue Exception => e
       Rails.logger.error e
-      render json: { error: e.to_s }
+      render json: { status: :error }
+    end
+  end
+
+  def update_column
+    begin
+      column = current_user.columns.find params[:column_id]
+
+      Rails.logger.log params.inspect
+
+      new = params[:position].to_i
+      old = column.position
+
+      Rails.logger.log [old,new].inspect
+
+      if old != new
+        current_user.columns.where(
+            position: {
+              '$gte' => [old,new].min,
+              '$lte' => [old,new].max
+            }
+        ).inc(:position, old > new ? 1 : -1)
+        column.position = params[:position]
+        column.save!
+      end
+
+      render json: { status: :ok }
+    rescue Exception => e
+      Rails.logger.error e
+      render json: { status: :error }
     end
   end
 

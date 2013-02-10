@@ -6,8 +6,7 @@ class ColumnsController < ApplicationController
   end
 
   def create
-    @column = Column.new params[:column]
-    @column.user = current_user
+    @column = current_user.columns.new params[:column]
 
     begin
       @column.save!

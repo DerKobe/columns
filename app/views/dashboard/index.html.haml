@@ -1,28 +1,34 @@
 - if @arrange_mode
   = render 'arrange/navbar'
 
-- current_user.columns.each do |column|
-  %ul.column.unstyled{ 'data-id' => column.id }
-    %li.category-header
-      %h2= column.title
-    - column.shortcuts.asc(:position).each do |shortcut|
-      %li.shortcut{ class: "#{shortcut.color} #{@arrange_mode ? '' : shortcut.sublinks_panel}", 'data-id' => shortcut.id }
-        .headline
-          %a{ href: @arrange_mode ? '#' : shortcut.url }
-            - if shortcut.favicon
-              %img{ src: shortcut.favicon, height: 16, width: 16 }
-            = shortcut.headline
-          - if !@arrange_mode && shortcut.sublinks_panel == :toggle
-            .pull-right
-              .toggle-buttons
-                %a{ href: '#' }
-                  %i.icon-chevron-down
-                %a.hide{ href: '#' }
-                  %i.icon-chevron-up
-          - if @arrange_mode
-            .pull-right
-              .arrange-buttons
-                = link_to edit_shortcut_path(shortcut), class: :edit  do
-                  %i.icon-pencil
-                = link_to shortcut_path(shortcut), method: :delete, class: :remove  do
-                  %i.icon-remove
+.columns
+  - current_user.columns.asc(:position).each do |column|
+    %ul.column.unstyled{ 'data-id' => column.id }
+      %li.category-header
+        %h2= column.title
+      - column.shortcuts.asc(:position).each do |shortcut|
+        %li.shortcut{ class: "#{shortcut.color} #{@arrange_mode ? '' : shortcut.sublinks_panel}", 'data-id' => shortcut.id }
+          .headline
+            - if @arrange_mode
+              - if shortcut.favicon
+                %img{ src: shortcut.favicon, height: 16, width: 16 }
+              = shortcut.headline
+            - else
+              %a{ href: @arrange_mode ? '#' : shortcut.url }
+                - if shortcut.favicon
+                  %img{ src: shortcut.favicon, height: 16, width: 16 }
+                = shortcut.headline
+            - if !@arrange_mode && shortcut.sublinks_panel == :toggle
+              .pull-right
+                .toggle-buttons
+                  %a{ href: '#' }
+                    %i.icon-chevron-down
+                  %a.hide{ href: '#' }
+                    %i.icon-chevron-up
+            - if @arrange_mode
+              .pull-right
+                .arrange-buttons
+                  = link_to edit_shortcut_path(shortcut), class: :edit  do
+                    %i.icon-pencil
+                  = link_to shortcut_path(shortcut), method: :delete, class: :remove  do
+                    %i.icon-remove

@@ -21,8 +21,9 @@ class Shortcut
   validates_presence_of :headline
   validates_presence_of :url
   validates_presence_of :column
+  validates_presence_of :position
 
-  before_save :get_position, :get_favicon
+  before_validation :get_position, :get_favicon
 
   private
 
