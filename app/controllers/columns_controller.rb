@@ -11,13 +11,13 @@ class ColumnsController < ApplicationController
     begin
       @column.save!
       redirect_to :root
-    rescue Mongoid::Errors::Validations
+    rescue Mongoid::Errors::Validations => e
       render :new
     end
   end
 
   def edit
-    @column = current_user.columns.find(params[:id])
+    @column = current_user.columns.find params[:id]
   end
 
 end

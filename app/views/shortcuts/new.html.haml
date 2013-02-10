@@ -5,14 +5,22 @@
 
   .container.first
     .span12
-      = f.input :url, input_html: { class: "span8" }, placeholder: 'http://columns.com', label: 'URL'
+      = f.input :url, input_html: { class: "span8" }, placeholder: 'http://columns.com', label: 'Url'
       = f.input :headline, input_html: { class: "span8" }, placeholder: 'Columns', label: 'Headline'
       = f.input :color, collection: colors, as: :radio_buttons, item_wrapper_class: 'inline'
       = f.input :column_id, collection: current_user.columns
-      = f.input :sublinks_panel, collection: sublinks_panel, as: :radio_buttons, item_wrapper_class: 'inline fixed-width'
-
+      = f.input :sublinks_panel, collection: sublinks_panel, as: :radio_buttons, item_wrapper_class: 'inline', input_html: { class: "sublinks-panel-option" }
+      #sublinks-panel.control-group{ style: @shortcut.sublinks_panel == :off ? 'display:none;' : '' }
+        %input{ type: 'hidden', name: 'sublinks_serialized' }
+        .sublinks
+          - @sublinks.each do |sublink|
+            = render 'sublink', sublink: sublink
+        .controls
+          %input#add-sublink.btn.btn-success{ type: 'button', value: 'Another one please'}
 
   .navbar.navbar-fixed-bottom.second
     .navbar-inner
       %input{ type: 'submit', class: 'btn btn-primary', value: 'Save' }
       %a{ href: '/', class: 'btn btn-danger'} Cancel
+
+%script#sublink-template{ type: 'template/html' }= render 'sublink', sublink: {title:'',url:''}

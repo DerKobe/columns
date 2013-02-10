@@ -3,19 +3,18 @@ class Dashboard
   constructor: ->
     $('body.dashboard .shortcut.auto-open').on 'mouseenter mouseleave', @toggle_sublinks
     $('body.dashboard .shortcut .toggle-buttons a').on 'click', @toggle_sublinks
-    #$('body.dashboard .shortcut .headline').on 'click', @follow_headline_link
 
     $('body.arrange ul').sortable({
       items: 'li.shortcut'
       connectWith: "body.arrange ul"
       stop: @save_new_position_for_shortcut
-    }).disableSelection();
+    }).disableSelection()
 
     $('body.arrange .columns').sortable({
       items: 'ul.column'
       stop: @save_new_position_for_column
       cursor: 'move'
-    }).disableSelection();
+    }).disableSelection()
 
   toggle_sublinks: (event)->
     $shortcut = $(event.target).closest('.shortcut')

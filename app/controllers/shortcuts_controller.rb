@@ -3,10 +3,18 @@ class ShortcutsController < ApplicationController
 
   def new
     @shortcut = Shortcut.new color: 'none'
+    @shortcut.column = current_user.columns.first
+    @sublinks = [{title:'',url:''}]
+    if @shortcut.column.nil?
+      Rails.logger.log @shortcut.column.inspect
+      flash[:warning] = 'You have to create a column first!'
+      redirect_to new_column_url
+    end
   end
 
   def create
     @shortcut = current_user.shortcuts.new params[:shortcut]
+    @sublinks = ActiveSupport::JSON.decode params[:sublinks_serialized]
 
     begin
       @shortcut.save!

@@ -5,6 +5,9 @@
 
   .container.first
     .span12
+      - if flash[:warning]
+        .alert.alert-warning
+          = flash[:warning]
       = f.input :title, input_html: { class: "span8" }, placeholder: 'MyColumn', label: 'Title'
 
   .navbar.navbar-fixed-bottom.second

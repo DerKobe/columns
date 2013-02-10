@@ -18,6 +18,7 @@ module ApplicationHelper
 
   def sublinks_panel
     {
+      'Off' => :off,
       'Always open' => :always_open,
       'Auto open/close' => :auto,
       'Manual toggle' => :toggle

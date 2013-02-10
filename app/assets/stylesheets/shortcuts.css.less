@@ -1,3 +1,5 @@
+@import "twitter/bootstrap/variables";
+@import "twitter/bootstrap/mixins";
 @import 'variables';
 
 .color {
@@ -13,4 +15,23 @@
   &.black  { border-color: @black;       background-color: @black_light;  color: @black_dark }
 
   padding-left: 10px;
+}
+
+#sublinks-panel {
+  input[type=text] {
+    width: 293px;
+  }
+
+  #add-sublink {
+    margin-top: 10px;
+    width: 620px;
+  }
+
+  i.icon-reorder {
+    padding: 5px 10px;
+    font-size: 12px;
+    .border-radius(3px);
+    background: #F0F0F0;
+    border:  1px solid #c7c7c7;
+  }
 }
