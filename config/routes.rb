@@ -4,7 +4,8 @@ Columns::Application.routes.draw do
   resources :columns, except: [:index, :show]
   resources :shortcuts, except: [:index, :show]
 
-  get 'arrange' => 'arrange#index'
+  get  'arrange' => 'arrange#index'
+  post 'arrange' => 'arrange#update'
 
   root to: 'dashboard#index'
 end

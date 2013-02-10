@@ -1,5 +1,3 @@
-require 'pismo'
-
 class ShortcutsController < ApplicationController
   before_filter :must_haz_user
 
@@ -8,11 +6,7 @@ class ShortcutsController < ApplicationController
   end
 
   def create
-    @shortcut = Shortcut.new params[:shortcut]
-    @shortcut.user = current_user
-
-    doc = Pismo::Document.new params[:shortcut][:url]
-    @shortcut.favicon = doc.favicon if doc.favicon
+    @shortcut = current_user.shortcuts.new params[:shortcut]
 
     begin
       @shortcut.save!
