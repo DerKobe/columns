@@ -4,7 +4,7 @@ class ShortcutsController < ApplicationController
   def new
     @shortcut = Shortcut.new color: 'none'
     @shortcut.column = current_user.columns.first
-    @sublinks = [{title:'',url:''}]
+    @sublinks = [{'title'=>'','url'=>''}]
     if @shortcut.column.nil?
       Rails.logger.log @shortcut.column.inspect
       flash[:warning] = 'You have to create a column first!'
@@ -16,6 +16,10 @@ class ShortcutsController < ApplicationController
     @shortcut = current_user.shortcuts.new params[:shortcut]
     @sublinks = ActiveSupport::JSON.decode params[:sublinks_serialized]
 
+    @sublinks.each do |sublink|
+      @shortcut.sublinks << Sublink.new(sublink)
+    end
+
     begin
       @shortcut.save!
       redirect_to :root
@@ -26,6 +30,7 @@ class ShortcutsController < ApplicationController
 
   def edit
     @shortcut = current_user.shortcuts.find params[:id]
+    @sublinks = @shortcut.sublinks.map{|s| {'title'=>s.title,'url'=>s.url} }
     render :new
   end
 
@@ -33,6 +38,15 @@ class ShortcutsController < ApplicationController
     begin
       @shortcut = current_user.shortcuts.find params[:id]
       @shortcut.write_attributes params[:shortcut]
+      @sublinks = ActiveSupport::JSON.decode params[:sublinks_serialized]
+
+      if @shortcut.valid?
+        @shortcut.sublinks.destroy_all
+        @sublinks.each do |sublink|
+          @shortcut.sublinks << Sublink.new(sublink)
+        end
+      end
+
       @shortcut.save!
       redirect_to arrange_url
     rescue Mongoid::Errors::Validations

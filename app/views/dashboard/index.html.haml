@@ -7,7 +7,7 @@
       %li.category-header
         %h2= column.title
       - column.shortcuts.asc(:position).each do |shortcut|
-        %li.shortcut{ class: "#{shortcut.color} #{@arrange_mode ? '' : shortcut.sublinks_panel}", 'data-id' => shortcut.id }
+        %li.shortcut{ class: "#{shortcut.color} #{@arrange_mode ? '' : shortcut.sublinks_panel} #{shortcut.sublinks_panel==:auto ? 'auto-open':''}", 'data-id' => shortcut.id }
           .headline
             - if @arrange_mode
               - if shortcut.favicon
@@ -32,3 +32,11 @@
                     %i.icon-pencil
                   = link_to shortcut_path(shortcut), method: :delete, class: :remove  do
                     %i.icon-remove
+
+          - if shortcut.sublinks.count > 0 && shortcut.sublinks_panel != :off
+            .sublinks{ style: [:toggle,:auto].include?(shortcut.sublinks_panel) ? 'display:none;':'' }
+              .separator
+              %ul.unstyled
+                - shortcut.sublinks.each do |sublink|
+                  %li
+                    %a{ href: sublink.url }= sublink.title
