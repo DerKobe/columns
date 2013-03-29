@@ -1,4 +1,5 @@
 require 'pismo'
+require 'timeout'
 
 class Shortcut
   include Mongoid::Document
@@ -34,7 +35,13 @@ class Shortcut
   end
 
   def get_favicon
-    doc = Pismo::Document.new url
-    self.favicon = doc.favicon if doc.favicon
+    begin
+      Timeout::timeout(5) {
+        doc = Pismo::Document.new url
+        self.favicon = doc.favicon if doc.favicon
+      }
+    rescue Exception => w
+      Rails.logger.warn w
+    end
   end
 end

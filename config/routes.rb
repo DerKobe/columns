@@ -1,5 +1,6 @@
 Columns::Application.routes.draw do
   devise_for :users
+  get 'users' => 'users#index'
 
   resources :columns, except: [:index, :show]
   resources :shortcuts, except: [:index, :show]
