@@ -11,7 +11,7 @@ gem 'devise'
 
 gem 'therubyracer'
 gem 'less-rails'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '2.1.6'
 gem 'simple_form'
 gem 'pismo'
 gem 'capistrano'
