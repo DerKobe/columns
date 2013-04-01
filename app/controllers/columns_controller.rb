@@ -11,13 +11,49 @@ class ColumnsController < ApplicationController
     begin
       @column.save!
       redirect_to :root
-    rescue Mongoid::Errors::Validations => e
+    rescue Mongoid::Errors::Validations
       render :new
     end
   end
 
   def edit
-    @column = current_user.columns.find params[:id]
+    begin
+      @column = current_user.columns.find params[:id]
+    rescue Mongoid::Errors::DocumentNotFound => e
+      Rails.logger.error e
+      redirect_to :root
+    else
+      render :new
+    end
+  end
+
+  def update
+    begin
+      @column = current_user.columns.find params[:id]
+      @column.title = params[:column][:title]
+    rescue Mongoid::Errors::DocumentNotFound => e
+      Rails.logger.error e
+      redirect_to :root
+    else
+      begin
+        @column.save!
+        redirect_to arrange_url
+      rescue Mongoid::Errors::Validations
+        render :new
+      end
+    end
+  end
+
+  def destroy
+    begin
+      column = current_user.columns.find params[:id]
+    rescue Mongoid::Errors::DocumentNotFound => e
+      Rails.logger.error e
+    else
+      Shortcut.where(column_id: column.id).delete
+      column.delete
+    end
+    redirect_to arrange_url
   end
 
 end

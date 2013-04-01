@@ -52,13 +52,8 @@ class ArrangeController < ApplicationController
   def update_column
     begin
       column = current_user.columns.find params[:column_id]
-
-      Rails.logger.log params.inspect
-
       new = params[:position].to_i
       old = column.position
-
-      Rails.logger.log [old,new].inspect
 
       if old != new
         current_user.columns.where(

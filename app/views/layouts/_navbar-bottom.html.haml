@@ -29,3 +29,17 @@
         =link_to edit_user_registration_path(current_user) do
           %i.icon-user
           = current_user.email
+      %li
+        %a{ href: '#about-columns', 'data-toggle' => 'modal', 'data-target' => '#about-columns' }
+          v1.0
+
+#about-columns.modal.hide.fade{ tabindex: -1, role: 'dialog', 'aria-labelledby' => 'myModalLabel', 'aria-hidden' => 'true' }
+  .modal-header
+    %h3#myModalLabel About Columns
+  .modal-body
+    %p
+      v1.0 (c)2012-2013
+    %p
+      written by Philip Claren
+  .modal-footer
+    %button.btn{ 'data-dismiss' => 'modal', 'aria-hidden' => 'true' } Close

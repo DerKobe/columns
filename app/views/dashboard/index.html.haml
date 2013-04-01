@@ -6,6 +6,12 @@
     %ul.column.unstyled{ 'data-id' => column.id }
       %li.category-header
         %h2= column.title
+        - if @arrange_mode
+          .arrange-buttons
+            = link_to edit_column_path(column), class: :edit  do
+              %i.icon-pencil
+            = link_to column_path(column), method: :delete, class: :remove, :data => { :confirm => "Are you sure?" }  do
+              %i.icon-remove
       - column.shortcuts.asc(:position).each do |shortcut|
         %li.shortcut{ class: "#{shortcut.color} #{@arrange_mode ? '' : shortcut.sublinks_panel} #{shortcut.sublinks_panel==:auto ? 'auto-open':''}", 'data-id' => shortcut.id }
           .headline

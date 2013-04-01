@@ -4,7 +4,7 @@ class Dashboard
     $('body.dashboard .shortcut.auto-open').on 'mouseenter mouseleave', @toggle_sublinks
     $('body.dashboard .shortcut .toggle-buttons a').on 'click', @toggle_sublinks
 
-    $('body.arrange ul').sortable({
+    $('body.arrange ul.column').sortable({
       items: 'li.shortcut'
       connectWith: "body.arrange ul"
       stop: @save_new_position_for_shortcut

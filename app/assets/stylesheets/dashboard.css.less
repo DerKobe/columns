@@ -17,6 +17,7 @@
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
+  position: relative;
 }
 
 .shortcut {
@@ -91,20 +92,6 @@
   }
 
   .toggle-buttons a { text-decoration: none; }
-
-  .arrange-buttons a {
-    i { width: 0.8em; }
-
-    &.edit, &.move {
-      color: lighten(black, 30%);
-      &:hover { color: black; }
-    }
-
-    &.remove {
-      color: lighten(red, 30%);
-      &:hover { color: red; }
-    }
-  }
 }
 
 body.arrange {
@@ -112,4 +99,26 @@ body.arrange {
     background: rgba(100,100,100,0.3);
     li { cursor: move; }
   }
+}
+
+.arrange-buttons a {
+  font-size: 18px;
+  i { width: 0.8em; }
+  &:hover { text-decoration: none; }
+  &.edit, &.move {
+    color: lighten(black, 30%);
+    &:hover { color: black; }
+  }
+  &.remove {
+    color: lighten(red, 30%);
+    &:hover { color: red; }
+  }
+}
+
+.category-header > .arrange-buttons {
+  position: absolute;
+  right: 14px;
+  top: 23px;
+  background-color: rgba(184, 184, 184, 0.8);
+  padding-left: 5px;
 }

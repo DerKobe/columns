@@ -6,7 +6,6 @@ class ShortcutsController < ApplicationController
     @shortcut.column = current_user.columns.first
     @sublinks = [{'title'=>'','url'=>''}]
     if @shortcut.column.nil?
-      Rails.logger.log @shortcut.column.inspect
       flash[:warning] = 'You have to create a column first!'
       redirect_to new_column_url
     end
