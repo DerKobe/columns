@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~>3.2.11'
+gem 'rails', '~>3.2.13'
 
 gem 'mongoid'
 
@@ -25,5 +25,5 @@ end
 
 group :development do
   gem 'better_errors'
-  #gem 'binding_of_caller'
+  gem 'binding_of_caller'
 end
