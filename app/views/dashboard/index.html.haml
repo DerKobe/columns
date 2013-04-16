@@ -15,15 +15,10 @@
       - column.shortcuts.asc(:position).each do |shortcut|
         %li.shortcut{ class: "#{shortcut.color} #{@arrange_mode ? '' : shortcut.sublinks_panel} #{shortcut.sublinks_panel==:auto ? 'auto-open':''}", 'data-id' => shortcut.id }
           .headline
-            - if @arrange_mode
+            %a.main-link{ href: @arrange_mode ? '#' : shortcut.url }
               - if shortcut.favicon
                 %img{ src: shortcut.favicon, height: 16, width: 16 }
               = shortcut.headline
-            - else
-              %a{ href: @arrange_mode ? '#' : shortcut.url }
-                - if shortcut.favicon
-                  %img{ src: shortcut.favicon, height: 16, width: 16 }
-                = shortcut.headline
             - if !@arrange_mode && shortcut.sublinks_panel == :toggle
               .pull-right
                 .toggle-buttons
@@ -34,9 +29,9 @@
             - if @arrange_mode
               .pull-right
                 .arrange-buttons
-                  = link_to edit_shortcut_path(shortcut), class: :edit  do
+                  = link_to (@arrange_mode ? '#' : edit_shortcut_path(shortcut)), class: :edit  do
                     %i.icon-pencil
-                  = link_to shortcut_path(shortcut), method: :delete, class: :remove  do
+                  = link_to (@arrange_mode ? '#' : shortcut_path(shortcut)), method: :delete, class: :remove  do
                     %i.icon-remove
 
           - if shortcut.sublinks.count > 0 && shortcut.sublinks_panel != :off
@@ -45,4 +40,4 @@
               %ul.unstyled
                 - shortcut.sublinks.each do |sublink|
                   %li
-                    %a{ href: sublink.url }= sublink.title
+                    %a{ href: @arrange_mode ? '#' : sublink.url }= sublink.title
