@@ -29,9 +29,9 @@
             - if @arrange_mode
               .pull-right
                 .arrange-buttons
-                  = link_to (@arrange_mode ? '#' : edit_shortcut_path(shortcut)), class: :edit  do
+                  = link_to edit_shortcut_path(shortcut), class: :edit  do
                     %i.icon-pencil
-                  = link_to (@arrange_mode ? '#' : shortcut_path(shortcut)), method: :delete, class: :remove  do
+                  = link_to shortcut_path(shortcut), method: :delete, class: :remove  do
                     %i.icon-remove
 
           - if shortcut.sublinks.count > 0 && shortcut.sublinks_panel != :off
