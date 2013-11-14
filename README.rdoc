@@ -1,1 +1,7 @@
-http://columns.aws.af.cm/
+You can check the app out at ```http://columns.aws.af.cm```.
+
+Create your own account or take a look at the globally available account with the following credentials:
+
+email: ```feel-free@to-add.stuff```
+
+password: ```password```
